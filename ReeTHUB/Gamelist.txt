@@ -1,0 +1,3 @@
+return {
+ ["328028363"] = {Name = "Typical Colors 2",Script = "tc2.txt"},
+}

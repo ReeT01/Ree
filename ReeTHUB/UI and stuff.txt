@@ -1,0 +1,87 @@
+
+  
+local placeid = game.PlaceId
+local gamelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/ReeT01/Ree/master/ReeTHUB/Gamelist", true))()
+local gamename
+local gamescript
+if gamelist[placeid] then
+	gamename = gamelist[placeid].Name
+	if gamelist[placeid].Script then
+		gamescript = gamelist[placeid].Script
+	end
+else
+	return "Game Not Found!"
+end
+
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local m3 = Instance.new("TextLabel")
+local m2 = Instance.new("TextLabel")
+local m = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(41, 41, 41)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(-1.45000005, 0, 0.920000017, 0)
+Frame.Size = UDim2.new(0, 143, 0, 63)
+
+m3.Name = "m3"
+m3.Parent = Frame
+m3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+m3.BackgroundTransparency = 1.000
+m3.BorderSizePixel = 0
+m3.Position = UDim2.new(-0.402254283, 0, -0.187618852, 0)
+m3.Size = UDim2.new(0, 200, 0, 47)
+m3.Font = Enum.Font.GothamBold
+m3.Text = "ReeT"
+m3.TextColor3 = Color3.fromRGB(255, 255, 255)
+m3.TextSize = 30.000
+
+m2.Name = "m2"
+m2.Parent = Frame
+m2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+m2.BackgroundTransparency = 1.000
+m2.Position = UDim2.new(-0.20322749, 0, 0.228730232, 0)
+m2.Size = UDim2.new(0, 200, 0, 32)
+m2.Font = Enum.Font.GothamBold
+m2.Text = "Powered by ReeT01"
+m2.TextColor3 = Color3.fromRGB(255, 255, 255)
+m2.TextSize = 10.000
+
+m.Name = "m"
+m.Parent = Frame
+m.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+m.BackgroundTransparency = 1.000
+m.BorderSizePixel = 0
+m.Position = UDim2.new(0.056965068, 0, -0.187618852, 0)
+m.Size = UDim2.new(0, 200, 0, 47)
+m.Font = Enum.Font.GothamBold
+m.Text = "Hub"
+m.TextColor3 = Color3.fromRGB(255, 0, 0)
+m.TextSize = 30.000
+
+-- Scripts:
+
+local function LQCYVGF_fake_script() -- Frame.LocalScript 
+    local script = Instance.new('LocalScript', Frame)
+
+    wait(3)
+    local e=script.Parent.Parent.Frame
+
+     e:TweenPosition(UDim2.new(0.439, 0,0.92, 0),"Out","Bounce",1) --Change to the position your gui will be when its open!
+
+end
+coroutine.wrap(LQCYVGF_fake_script)()
+wait(4)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ReeT01/Ree/master/ReeTHUB/"..gamescript, true))()

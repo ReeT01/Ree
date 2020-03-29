@@ -1,0 +1,254 @@
+--ui library by wally,go leave a vouch dumb idiot https://v3rmillion.net/showthread.php?tid=899177 << not made by me, just using it and giving CREDITS
+
+--[[
+--anti cheat bypasser (not my) vouch this dude https://v3rmillion.net/showthread.php?tid=898588
+_G.level = 4
+_G.humanoidchange = false
+_G.humanoidname = "fin"
+_G.FindAntiCheats = false
+_G.AntiKickLevel = 1
+
+loadstring(game:HttpGet("https://rblxscript.com/uploads/40429jZ8lA36665c3686408.lua"))()
+--]]
+
+local hint = Instance.new('Hint',workspace)
+hint.Text = "Loading"
+local rep = game.ReplicatedStorage
+local render = game:GetService("RunService").RenderStepped
+local events = rep.Events
+local fdam = events.FallDamage
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/eWKgbdix", true))()
+library.options.underlinecolor = "rainbow"
+local localplr = library:CreateWindow('Local');
+local guncheats = library:CreateWindow('Gun Cheats');
+local misc = library:CreateWindow('Miscellaneous');
+localplr:Toggle('Super Speed', {flag = "speedtoggle"});
+localplr:Toggle('Super Jump', {flag = "jumptoggle"});
+localplr:Toggle('God Mode', {flag = "godtoggle"});
+localplr:Toggle('Bhop', {flag = "bhoptoggle"});
+guncheats:Toggle('Infinite Ammo', {flag = "ammotoggle"});
+guncheats:Toggle('Rainbow Gun', {flag = "rainguntoggle"});
+guncheats:Toggle('Instant Spin Up (heavy minigun)', {flag = "gunspintoggle"});
+misc:Toggle('No prep (spawn/shoot anytime)', {flag = "nopreptoggle"})
+misc:Toggle('Can Always Respawn', {flag = "canspawntoggle"})
+misc:Bind("Toggle Gui",
+          {flag = "Toggle", kbonly = true, default = Enum.KeyCode.LeftControl},
+          function()
+    game:GetService("CoreGui").ScreenGui.Container.Visible = not game:GetService("CoreGui").ScreenGui.Container.Visible
+end)
+
+misc:Button('Kill Server (Trooper)', function()
+	local team = game.Players.LocalPlayer.Status.Team
+
+	for i = 1,250,1 do
+	    for i,v in pairs(game.Players:GetChildren()) do
+	        if v.Status.Team.Value ~= team.Value then
+	            local A_1 = "Rocket"
+	            local A_2 = Vector3.new(v.Character.HumanoidRootPart.CFrame)
+	            local A_3 = v.Character.HumanoidRootPart.CFrame
+	            local A_4 = "Rocket Launcher"
+	            local A_5 = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+	            local Event = game:GetService("ReplicatedStorage").Events.CreateProjectile
+	            Event:FireServer(A_1, A_2, A_3, A_4, A_5)
+	        end
+	    end
+	end
+end)
+misc:Button('Kill Server (Scout)', function()
+	local team = game.Players.LocalPlayer.Status.Team
+
+	for i = 1,250,1 do
+	    for i,v in pairs(game.Players:GetChildren()) do
+	        if v.Status.Team.Value ~= team.Value then
+	            local A_1 = "Baseball"
+	            local A_2 = Vector3.new(v.Character.HumanoidRootPart.CFrame)
+	            local A_3 = v.Character.HumanoidRootPart.CFrame
+	            local A_4 = "Fan O' War"
+	            local A_5 = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+	            local Event = game:GetService("ReplicatedStorage").Events.CreateProjectile
+	            Event:FireServer(A_1, A_2, A_3, A_4, A_5)
+	        end
+	    end
+	end
+end)
+misc:Button('Kill TC2 Boss (Trooper)', function()
+	local team = game.Players.LocalPlayer.Status.Team
+
+	for i = 1,500,1 do
+	    for i,v in pairs(game.Players:GetChildren()) do
+	        if v.Status.Team.Value ~= team.Value then
+	            local A_1 = "Rocket"
+	            local A_2 = Vector3.new(v.Character.HumanoidRootPart.CFrame)
+	            local A_3 = v.Character.HumanoidRootPart.CFrame
+	            local A_4 = "Rocket Launcher"
+	            local A_5 = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+	            local Event = game:GetService("ReplicatedStorage").Events.CreateProjectile
+	            Event:FireServer(A_1, A_2, A_3, A_4, A_5)
+	        end
+	    end
+	end
+end)
+misc:Button('Join Red', function()
+	events.JoinTeam:FireServer('TRC')
+end)
+misc:Toggle('Advertise (ples)', {flag = "advertoggle"})
+
+misc:Box('Choose Class', {
+   flag = "choclass";
+   type = 'string';
+}, function(new, old, enter)
+   print(new, old, enter)
+   events.PickClass:FireServer(tostring(new))
+end)
+misc:Button('Join Green', function()
+	events.JoinTeam:FireServer('TGC')
+end)
+misc:Toggle('Medieval Mode', {flag = "medtoggle"});
+localplr:Button('Load Character', function()
+	events.LoadCharacter:FireServer()
+end)
+misc:Button('Aimbot', function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/hjNHZrWL",true))()
+end)
+
+
+
+misc:Button('Spawn lvl3 Sentry', function()
+	local team
+	if game.Players.LocalPlayer.Status.Team.Value == "TRC" then
+		team = "TRC"
+	elseif game.Players.LocalPlayer.Status.Team.Value == "TGC" then
+		team = "TGC"
+	end
+	local A_1 = game.Workspace[game.Players.LocalPlayer.Name].HumanoidRootPart.CFrame
+	local A_2 = "Sentry"
+	local A_3 = true
+	local A_4 = 3
+	local A_5 = 50000000000
+	local A_6 = 50000000000
+	local A_7 = 50000000000
+	local A_8 = 50000000000
+	local A_9 = 50000000000
+	local A_10 = team
+	local Event = game:GetService("ReplicatedStorage").Events.DeployBuilding
+	Event:FireServer(A_1, A_2, A_3, A_4, A_5, A_6, A_7, A_8, A_9, A_10)
+end)
+misc:Button('Spawn lvl3 Dispenser', function()
+	local team
+	if game.Players.LocalPlayer.Status.Team.Value == "TRC" then
+		team = "TRC"
+	elseif game.Players.LocalPlayer.Status.Team.Value == "TGC" then
+		team = "TGC"
+	end
+	local A_1 = game.Workspace[game.Players.LocalPlayer.Name].HumanoidRootPart.CFrame
+	local A_2 = "Dispenser"
+	local A_3 = true
+	local A_4 = 3
+	local A_5 = 50000000000
+	local A_6 = 50000000000
+	local A_7 = 50000000000
+	local A_8 = 50000000000
+	local A_9 = 50000000000
+	local A_10 = team
+	local Event = game:GetService("ReplicatedStorage").Events.DeployBuilding
+	Event:FireServer(A_1, A_2, A_3, A_4, A_5, A_6, A_7, A_8, A_9, A_10)
+end)
+misc:Toggle('Toggle Fall Damage', {flag = "falldamgtoggle"});
+
+local n = 0
+render:Connect(function()
+	if guncheats.flags.gunspintoggle then
+		events.SpinUp:FireServer(true)
+		events.FullySpinUp:FireServer(true)
+	end
+	if misc.flags.advertoggle then
+		wait(0.01)
+		game.ReplicatedStorage.Events.PlayerChatted:FireServer('Get Good, Get Unfair Colors 😎')
+		wait(0.01)
+	end
+	if misc.flags.canspawntoggle then
+		game.Workspace.Status.CanRespawn.Value = true
+	else
+		game.Workspace.Status.CanRespawn.Value = false
+	end
+	if misc.flags.nopreptoggle then
+		game.Workspace.Status.Preparation.Value = false
+		game.Workspace.Status.RoundOver.Value = false
+	else
+	
+	end
+	if guncheats.flags.rainguntoggle then
+		wait()
+	    local camera = game.Workspace.Camera.Arms
+	    if not camera then
+	        repeat wait() until game.Workspace.Camera.Arms
+	    end
+	    for i,v in pairs(game.Workspace.Camera.Arms:GetDescendants()) do
+	        if v.Name == "Part" or "Handle" then
+	           if v.ClassName == "MeshPart" then
+	               if v.Name ~= "HumanoidRootPart" then
+	                   v.Color = Color3.fromHSV(n, 0.4, 1)
+	                   n = (n + 0.01) % 1
+	               end
+	           end
+	       end
+	    end
+	end
+	if misc.flags.medtoggle then
+		game.ReplicatedStorage.Medieval.Value = true
+	else
+		game.ReplicatedStorage.Medieval.Value = false
+	end
+    if guncheats.flags.ammotoggle then
+        rep.InfAmmo.Value = true
+    else
+        rep.InfAmmo.Value = false
+    end
+    if localplr.flags.speedtoggle then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 150
+    end
+
+    if misc.flags.falldamgtoggle then
+        fdam.Parent = game.Lighting
+    else
+        fdam.Parent = events
+    end
+    if localplr.flags.jumptoggle then
+        game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = true
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 100
+    else
+        game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = false
+    end
+    if localplr.flags.godtoggle then
+        if game.Players.LocalPlayer.Character.Humanoid.Health <= 50 then
+            local savepos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+            if game.Players.LocalPlayer.Character.Humanoid.Health <= 25 then
+                game.ReplicatedStorage.Events.LoadCharacter:FireServer()
+                wait(0.2)
+                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos
+                --if localplayer didnt go to last pos then do it again
+                wait(0.2)
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame ~= savepos then
+                    game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos 
+                end
+                --if localplayer didnt go to last pos then do it again
+                wait(0.2)
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame ~= savepos then
+                    game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos 
+                end
+                --if localplayer didnt go to last pos then do it again
+                wait(0.2)
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame ~= savepos then
+                    game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos 
+                end
+            end
+        end
+    end
+    if localplr.flags.bhoptoggle then
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end
+end)
+
+hint.Text = "Loaded"
+wait(.5)
+hint:Remove()
